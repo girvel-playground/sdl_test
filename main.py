@@ -1,12 +1,10 @@
-import sdl2.ext
+import pygame
 
-sdl2.ext.init()
-window = sdl2.ext.Window("Hello world!", size=(640, 480))
-window.show()
+pygame.init()
 
+screen = pygame.display.set_mode((640, 480))
 while True:
-    events = sdl2.ext.get_events()
-    if any(e.type == sdl2.SDL_QUIT for e in events): break
-    window.refresh()
+    events = pygame.event.get()
+    if any(event.type == pygame.QUIT for event in events): break
 
-sdl2.ext.quit()
+pygame.quit()
